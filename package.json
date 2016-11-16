@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  preferGlobal: "true",
   "bin": {"webpc": "./index.js"},
   "keywords": [
     "webp",
@@ -13,6 +14,10 @@
     "images",
     "clo"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoipo/webp-converter-cli.git"
+  },
   "author": "Hoipo Cheung",
   "license": "MIT",
   "dependencies": {
