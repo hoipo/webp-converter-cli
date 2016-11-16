@@ -1,0 +1,21 @@
+{
+  "name": "webp-converter-cli",
+  "version": "0.0.1",
+  "description": "a cli tool to convert images to webp format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webp",
+    "convert",
+    "images",
+    "clo"
+  ],
+  "author": "Hoipo Cheung",
+  "license": "MIT",
+  "dependencies": {
+    "image-type": "^2.1.0",
+    "imagemin-webp": "^4.0.0"
+  }
+}
