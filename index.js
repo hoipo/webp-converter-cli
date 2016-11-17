@@ -45,7 +45,7 @@ program
 if (program.files) {
     fileList = program.files;
 } else {
-    walk('./');
+    walk(process.cwd());
 }
 
 console.log(chalk.yellow("Found " + fileList.length + " image file(s) !"));
