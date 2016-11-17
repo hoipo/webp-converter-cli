@@ -13,6 +13,11 @@ function list(val) {
     return val.split(',');
 }
 
+function queryExtName(fileName){ 
+    var d=/\.[^\.]+$/.exec(fileName); 
+    return d; 
+} 
+
 function walk(path) {
     var dirList = fs.readdirSync(path);
     dirList.forEach(function(item) {
@@ -21,18 +26,17 @@ function walk(path) {
             if (imageTypeData) {
                 if (imageTypeData.ext === 'jpg' || imageTypeData.ext === 'png') {
                     fileList.push(path + '/' + item);
-
                 }
             }
         }
     });
 
     if (program.recursive) {
-	    dirList.forEach(function(item) {
-	        if (fs.statSync(path + '/' + item).isDirectory()) {
-	            walk(path + '/' + item);
-	        }
-	    });
+        dirList.forEach(function(item) {
+            if (fs.statSync(path + '/' + item).isDirectory()) {
+                walk(path + '/' + item);
+            }
+        });
     }
 }
 
@@ -49,12 +53,11 @@ if (program.files) {
 }
 
 console.log(chalk.yellow("Found " + fileList.length + " image file(s) !"));
-
 fileList.forEach(function (file) {
-	execFile(cwebp, [file, '-o', file], function (err) {
-	    if (err) {
-	        throw err;
-	    }
-	    console.log(chalk.green(file + ' is converted!'));
-	});
+    execFile(cwebp, [file, '-o', file.replace(queryExtName(file),".webp")], function (err) {
+        if (err) {
+            throw err;
+        }
+        console.log(chalk.green(file + ' is converted!'));
+    });
 })

@@ -1,6 +1,6 @@
 {
   "name": "webp-converter-cli",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "a cli tool to convert images to webp format.",
   "main": "index.js",
   "scripts": {
