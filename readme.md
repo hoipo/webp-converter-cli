@@ -20,19 +20,19 @@ After installation, just run command `webpc` in ternimal.
 
 To convert all images within the current directory and subdirectoies, use the -r flag
 
-    webpc -r
+    $ webpc -r
 
 To convert the specific image files (assets/img.jpg in this example), you may run the following command.
 
-    webpc -f assets/img.jpg
+    $ webpc -f assets/img.jpg
     
 or
 
-     webpc -f assets/img1.jpg,assets/img2.png
+    $ webpc -f assets/img1.jpg,assets/img2.png
 
 for more help infomation, you could run the -h flag to check it out.
 
-    webpc -h
+    $ webpc -h
 
 ## License
 
