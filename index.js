@@ -4,7 +4,6 @@ const fs = require('fs');
 const readChunk = require('read-chunk');
 const imageType = require('image-type');
 const execFile = require('child_process').execFile;
-const cwebp = require('cwebp-bin');
 const program = require('commander');
 const chalk = require('chalk');
 var fileList = [];
@@ -53,11 +52,13 @@ if (program.files) {
 }
 
 console.log(chalk.yellow("Found " + fileList.length + " image file(s) !"));
-fileList.forEach(function (file) {
-    execFile(cwebp, [file, '-o', file.replace(queryExtName(file),".webp")], function (err) {
-        if (err) {
-            throw err;
-        }
-        console.log(chalk.green(file + ' is converted!'));
+import('cwebp-bin').then(({ default: cwebp }) => {
+    fileList.forEach(function (file) {
+        execFile(cwebp, [file, '-o', file.replace(queryExtName(file),".webp")], function (err) {
+            if (err) {
+                throw err;
+            }
+            console.log(chalk.green(file + ' is converted!'));
+        });
     });
-})
+});
